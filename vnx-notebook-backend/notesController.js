@@ -1,4 +1,4 @@
-import { supabase, TABLES } from '../supabase.js';
+import { supabase, TABLES } from './supabase.js';
 import { v4 as uuidv4 } from 'uuid';
 import Joi from 'joi';
 
