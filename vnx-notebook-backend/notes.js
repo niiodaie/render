@@ -1,27 +1,19 @@
 import express from 'express';
-import { notesController } from './notesController.js';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import notesRoutes from './your-notes-router-file.js'; // Adjust the path accordingly
 
-const router = express.Router();
+dotenv.config();
 
-// GET /api/notes - Get all notes
-router.get('/', notesController.getAllNotes);
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-// GET /api/notes/search - Search notes
-router.get('/search', notesController.searchNotes);
+// Mount your routes
+app.use('/api/notes', notesRoutes);
 
-// GET /api/notes/tag/:tag - Get notes by tag
-router.get('/tag/:tag', notesController.getNotesByTag);
-
-// GET /api/notes/:id - Get a specific note
-router.get('/:id', notesController.getNoteById);
-
-// POST /api/notes - Create a new note
-router.post('/', notesController.createNote);
-
-// PUT /api/notes/:id - Update a note
-router.put('/:id', notesController.updateNote);
-
-// DELETE /api/notes/:id - Delete a note
-router.delete('/:id', notesController.deleteNote);
-
-export default router;
+// ✅ Bind to Render-detected port
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ VNX Notebook backend running on port ${PORT}`);
+});
