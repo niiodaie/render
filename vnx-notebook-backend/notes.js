@@ -1,5 +1,5 @@
 import express from 'express';
-import { notesController } from '../controllers/notesController.js';
+import { notesController } from './notesController.js';
 
 const router = express.Router();
 
@@ -25,4 +25,3 @@ router.put('/:id', notesController.updateNote);
 router.delete('/:id', notesController.deleteNote);
 
 export default router;
-
