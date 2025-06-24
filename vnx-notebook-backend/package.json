@@ -12,6 +12,6 @@
   "dotenv": "^16.3.1",
   "@supabase/supabase-js": "^2.39.4",
   "uuid": "^9.0.0",
-  "joi": "^17.9.2"  // 👈 this line must be present
+  "joi": "^17.9.2" 
 }
 }
